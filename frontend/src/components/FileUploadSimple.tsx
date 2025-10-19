@@ -279,41 +279,26 @@ export default function FileUpload() {
 
         {/* Result */}
         {result && (
-          <div className="bg-gradient-to-r from-green-50 to-emerald-50 border-2 border-green-200 rounded-xl p-6 shadow-lg">
-            <div className="flex items-center mb-4">
-              <svg className="w-8 h-8 text-green-600 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-              </svg>
-              <h3 className="text-xl font-bold text-green-800">✅ {result.message}</h3>
-            </div>
+          <div className="bg-green-50 border border-green-200 rounded p-4">
+            <h3 className="font-bold text-green-800 mb-2">✅ {result.message}</h3>
             
             {/* CSV Preview */}
-            <div className="bg-white border-2 border-gray-200 rounded-lg p-4 mb-4 shadow-inner">
-              <div className="flex items-center mb-2">
-                <svg className="w-5 h-5 text-gray-600 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-                </svg>
-                <strong className="text-gray-800">Generated CSV Content:</strong>
-              </div>
-              <pre className="whitespace-pre-wrap font-mono text-sm text-gray-700 bg-gray-50 p-3 rounded border overflow-x-auto">
-{result.csvData}
-              </pre>
+            <div className="bg-white border rounded p-2 mb-3 font-mono text-xs">
+              <strong>CSV Content:</strong>
+              <pre className="whitespace-pre-wrap mt-1">{result.csvData}</pre>
             </div>
             
             <button
               onClick={handleDownload}
-              className="inline-flex items-center px-6 py-3 bg-green-600 text-white font-semibold rounded-lg hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2 shadow-md transition-all duration-200 transform hover:scale-105"
+              className="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700"
             >
-              <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-              </svg>
-              📥 Download Processed CSV
+              📥 Download CSV
             </button>
           </div>
         )}
 
         {/* Instructions */}
-        <div className="bg-blue-50 border border-blue-200 rounded p-4">
+        {/* <div className="bg-blue-50 border border-blue-200 rounded p-4">
           <h4 className="font-bold text-blue-800 mb-2">📋 Instructions:</h4>
           <p className="text-sm text-blue-700 mb-2">
             1. Click "Test with Sample Data" to verify the app works
@@ -324,7 +309,7 @@ export default function FileUpload() {
           <p className="text-sm text-blue-700">
             3. Open browser console (F12) to see processing logs
           </p>
-        </div>
+        </div> */}
       </div>
     </div>
   );
